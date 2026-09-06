@@ -2,15 +2,19 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #151515;
   --primary: #571244;
-  --secondary: #EF4353;
-  --tertiary: #8F6182;
-  --quaternary: #2C0922;
-  --border: #C4C4C4;
-  --quinary: #906E94;
   --senary: #1D0617;
+  --secondary: #EF4353;
+  --tertiary: #696969;
+  --secondary-foreground: #000000;
+  --primary-foreground: #DDD0DA;
+  --icon-flash-stroke: #480F39;
+  --quaternary: #8F6182;
+  --quinary: #2C0922;
   --septenary: #1671D9;
+
+  --border: #C4C4C4;
   --octonary: #909090;
 }
 
@@ -24,6 +28,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-quaternary: var(--quaternary);
+  --color-border: var(--border);
+  --color-quinary: var(--quinary);
+  --color-senary: var(--senary);
+  --color-septenary: var(--septenary);
+  --color-octonary: var(--octonary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+   --color-icon-flash-stroke: var( --icon-flash-stroke)
   --font-heading: var(--font-nunito);
   --font-body: var(--font-nunito-sans);
 }

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 const nunito = localFont({
   src: [
     {
-      path: "../fonts/Nunito-VariableFont_wght.ttf",
+      path: "../public/fonts/nunito/Nunito-VariableFont_wght.ttf",
       style: "normal",
     },
     {
-      path: "../fonts/Nunito-Italic-VariableFont_wght.ttf",
+      path: "../public/fonts/nunito/Nunito-Italic-VariableFont_wght.ttf",
       style: "italic",
     },
   ],
@@ -20,11 +21,11 @@ const nunito = localFont({
 const nunitoSans = localFont({
   src: [
     {
-      path: "../fonts/nunito-sans/nunito-sans.ttf",
+      path: "../public/fonts/nunito-sans/nunito-sans.ttf",
       style: "normal",
     },
     {
-      path: "../fonts/nunito-sans/nunito-sans-italic.ttf",
+      path: "../public/fonts/nunito-sans/nunito-sans-italic.ttf",
       style: "italic",
     },
   ],
@@ -43,7 +44,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${nunito.variable} ${nunitoSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar/>
+        {children}
+      </body>
     </html>
   );
 }
