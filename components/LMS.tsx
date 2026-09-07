@@ -37,11 +37,11 @@ function LMS() {
                         Some of our courses include:
                     </h6>
 
-                    <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {courses.map((course) => (
                             <li
                             key={course}
-                            className="flex items-start gap-2 text-base text-foreground leading-[150%]"
+                            className="flex items-start gap-2 text-sm md:text-base text-foreground leading-[150%]"
                             >
                             <span
                                 aria-hidden="true"

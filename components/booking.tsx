@@ -11,7 +11,7 @@ function Booking() {
             Don't just dream it—let's build it! Click now and start your project with Tobams Group. Your journey to digital excellence begins here.
             </h3>
 
-            <button className="flex items-center justify-center bg-background text-primary py-3 px-6 w-fit rounded-sm text-lg font-semibold leading-[120%] ">
+            <button className="cursor-pointer flex items-center justify-center bg-background text-primary py-3 px-6 w-fit rounded-sm text-lg font-semibold leading-[120%] ">
                 Book a Consultation
             </button>
         </div>

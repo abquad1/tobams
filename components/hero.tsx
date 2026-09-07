@@ -34,7 +34,7 @@ function Hero() {
                 Our comprehensive range of programs and resources is designed to enhance skills, broaden knowledge, and propel careers forward in today's ever-evolving landscape.
             </p>
 
-            <button className="flex items-center justify-center primary-button py-[10.5px] px-4 rounded-sm text-sm font-semibold text-background leading-relaxed ">
+            <button className="flex cursor-pointer items-center justify-center primary-button py-[10.5px] px-4 rounded-sm text-sm font-semibold text-background leading-relaxed ">
                 Book a Consultation
             </button>
         </div>
