@@ -46,6 +46,8 @@ Fonts, page metadata, and the navbar all live in `app/layout.tsx`. The page uses
 
 **Breakpoints**: the brief asks for 425px, 768px, and 1280px. Most of this is built with Tailwind's `md:` and `xl:` prefixes. Figma only gave a desktop frame and a mobile frame — no tablet frame — so the tablet layout is my own judgment call, not copied from a spec. The main nav has 8 links plus dropdown arrows, which don't fit well until close to 1280px, so the mobile menu stays in use through tablet and only switches to the full nav at `xl:`. Other sections switch to their desktop layout earlier, at `md:`.
 
+**LMS heading size and image width**: ma sets the "Learning Management System" heading to 40px, but only on the 1440px+ frame — there's no design for sizes in between. At 40px, the heading wrapped to two lines on smaller desktop screens, so I used 30px below 1440px and switched to the full 40px at 1440px and up. I also made the image column about 55% of the row's width instead of 50/50, so the photo stays a perfect circle without squeezing the heading.
+
 **Mobile navigation**: I added a slide-out sidebar menu for mobile. This isn't in the Figma file — Figma only shows a hamburger icon with no menu behind it. I built the sidebar myself so the site is actually usable on mobile, since the hamburger icon alone doesn't do anything.
 
 **Repeated sections**: Corporate Trainings, Personalised Individual Training, and Capacity Development all use one `TrainingSection` component and one `trainingCards` array, instead of three separate but nearly identical components.

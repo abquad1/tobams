@@ -11,7 +11,7 @@ function LMS() {
             Learning Management System
             </h3>
             {/* left side */}
-            <div className="w-full md:w-2/5 mx-auto relative aspect-square">
+            <div className="w-full md:w-11/20 mx-auto relative aspect-square">
                 <Image
                     src="/images/learning-management-system.jpg"
                     alt="learning-management-system-image"
@@ -23,8 +23,8 @@ function LMS() {
             </div>
 
             {/* right side */}
-            <div className="flex flex-col w-full md:w-3/5 gap-3">
-                <h3 className="hidden md:block font-semibold text-[40px] tracking-[3%] leading-[150%]">
+            <div className="flex flex-col w-full md:w-9/20 gap-3">
+                <h3 className="hidden md:block font-semibold text-[30px] tracking-[3%] leading-[150%]">
                 Learning Management System
                 </h3>
 
