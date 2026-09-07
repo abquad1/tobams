@@ -1,16 +1,16 @@
 # Tobams Group — Training and Development
 
-A pixel-perfect, responsive build of the Frontend Intern Assessment Figma design, done in Next.js and Tailwind CSS v4.
+A responsive build of the Frontend Intern Assessment Figma design, made with Next.js and Tailwind CSS v4.
 
-**Live site:** https://tobams.vercel.app
+**Live site:** https://tobams-weld.vercel.app/
 **Repo:** https://github.com/abquad1/tobams
-**Figma:** https://www.figma.com/design/wuqCLkK1feTgB6xxSRRwZu/Frontend-Intern-Assessment?node-id=0-1
+**Figma:** https://www.figma.com/design/wuqCLkK1feTgB6xxSRRwZu/Frontend-Intern-Assessment?node-id=1-1387&t=vrhivaZI2s6lAukn-0
 
 ---
 
 ## Stack
 
-Next.js 16 (App Router) with TypeScript, Tailwind CSS v4, and nothing else in the way of styling — no component library, no second CSS framework. Images go through `next/image`, and the two typefaces (Nunito for headings, Nunito Sans for body copy) are loaded locally via `next/font/local` rather than pulled from Google Fonts at runtime.
+Next.js 16 (App Router), TypeScript, Tailwind CSS v4. No other CSS framework, no component library. Images use `next/image`. The two fonts (Nunito and Nunito Sans) are loaded locally with `next/font/local` instead of from Google Fonts.
 
 ## Running it locally
 
@@ -21,56 +21,60 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:3000. `npm run build` / `npm run start` for a production build, `npm run lint` to check it's clean.
+Open http://localhost:3000. Use `npm run build` and `npm run start` for a production build, and `npm run lint` to check the code.
 
-## How the page is put together
+## How the page is built
 
-`app/page.tsx` doesn't hold any markup itself — it just imports and stacks the section components in order. Each section of the design got its own file under `/components`:
+`app/page.tsx` just stacks the section components in order — it has no markup of its own. Each part of the design is its own file in `/components`:
 
-- `navbar.tsx` — header and nav, including the mobile drawer
+- `navbar.tsx` — header, nav links, and the mobile menu
 - `hero.tsx` — the top banner
 - `LMS.tsx` — Learning Management System section
-- `training-section.tsx` — a reusable image + copy row, used by `trainings.tsx` for both the corporate and individual training blocks so they're not duplicated
+- `training-section.tsx` — one reusable image + text row, used by `trainings.tsx` for both the corporate and individual training sections, so they don't repeat the same code
 - `MDP.tsx` — Management Development Program
 - `transformation.tsx` — Transformation Hub with Jite Newton
-- `consultant-training.tsx` and `booking.tsx` — the consultant-training pitch and consultation CTA
+- `consultant-training.tsx` and `booking.tsx` — the consultant training section and the consultation CTA
 - `testimonial.tsx` — the testimonials carousel
-- `footer.tsx`, backed by `footer-data.ts` for the link columns, offices, and contact details
-- `icons/` — every icon in the design as its own small SVG component, colored via `currentColor` so they pick up whatever text color is set where they're used
+- `footer.tsx`, with `footer-data.ts` holding the link columns, offices, and contact details
+- `icons/` — every icon as its own small SVG component, colored with `currentColor` so it works wherever it's used
 
-Fonts, metadata, and the navbar live in `app/layout.tsx`. Landmarks are real HTML — `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>` — rather than generic divs.
+Fonts, page metadata, and the navbar all live in `app/layout.tsx`. The page uses real HTML landmarks — `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>` — not just divs.
 
-## Design decisions and assumptions
+## Design decisions
 
-**Colors** are pulled from Figma's Inspect panel and mapped as CSS variables in `globals.css`, then exposed to Tailwind through `@theme inline` — so `bg-primary`, `text-senary`, `bg-secondary` etc. all trace back to the actual hex values in the design instead of being guessed.
+**Colors** come from Figma's Inspect panel and are set as CSS variables in `globals.css`. Tailwind picks them up through `@theme inline`, so classes like `bg-primary` and `text-senary` match the real design colors.
 
-**Breakpoints**: the brief's three checkpoints (425 / 768 / 1280) mostly map to Tailwind's `md:` and `xl:` prefixes rather than `sm:`/`md:`/`lg:`. Figma only provided desktop and mobile frames — no dedicated tablet layout — so tablet was interpolated by judgment rather than to a spec. The main nav in particular has 8 items plus dropdown chevrons that don't fit legibly until closer to 1280px, so the mobile hamburger menu stays in use through the full tablet range and only switches to the horizontal nav at `xl:`. Everywhere else (feature rows, images-and-text sections) switches to the desktop layout earlier, at `md:`.
+**Breakpoints**: the brief asks for 425px, 768px, and 1280px. Most of this is built with Tailwind's `md:` and `xl:` prefixes. Figma only gave a desktop frame and a mobile frame — no tablet frame — so the tablet layout is my own judgment call, not copied from a spec. The main nav has 8 links plus dropdown arrows, which don't fit well until close to 1280px, so the mobile menu stays in use through tablet and only switches to the full nav at `xl:`. Other sections switch to their desktop layout earlier, at `md:`.
 
-**Reusable rows**: Corporate Trainings, Personalised Individual Training, and Capacity Development all share one `TrainingSection` component and a `trainingCards` data array — same shape, alternating image side, one heading/copy/bullet list per entry — instead of three near-identical components.
+**Mobile navigation**: I added a slide-out sidebar menu for mobile. This isn't in the Figma file — Figma only shows a hamburger icon with no menu behind it. I built the sidebar myself so the site is actually usable on mobile, since the hamburger icon alone doesn't do anything.
 
-**Nav dropdowns**: About, What We Do, and Jobs have chevrons that toggle open/closed state and are fully keyboard-operable (Enter/Space, focus-visible, `aria-expanded`), but since this is a single static page with no corresponding subpages, they don't open real flyout menus with content — noted here rather than left silently incomplete.
+**Repeated sections**: Corporate Trainings, Personalised Individual Training, and Capacity Development all use one `TrainingSection` component and one `trainingCards` array, instead of three separate but nearly identical components.
 
-**Booking section copy**: the mobile and desktop headlines are two different strings from the design, not one string truncated with CSS — worth knowing since they read a little differently side by side.
+**Nav dropdowns**: About, What We Do, and Jobs have arrows that can be opened and closed, and they work with a keyboard (Enter, Space, and proper focus states). They don't show real dropdown menus with content, though, since this is a single page with no other pages to link to.
+
+**Booking section text**: the mobile and desktop headlines are two different sentences from the design, not one sentence cut short with CSS.
+
+**Favicon**: swapped the default Next.js icon for the Tobams Group logo, so the browser tab matches the brand.
 
 ## Accessibility
 
-Semantic landmarks throughout, real `alt` text on every photo/logo/avatar (not filename placeholders), decorative bullets and dividers marked `aria-hidden`. Every interactive element is a native `<button>` or `<Link>`, so keyboard navigation and focus states come for free rather than being bolted on. The mobile menu has proper open/close labels and `aria-expanded` state.
+Every major section uses proper HTML landmarks. Every image has real, meaningful `alt` text — not just a filename. Decorative bullets and dividers are marked `aria-hidden`. Buttons and links are all native `<button>` and `<Link>` elements, so they work with a keyboard by default. The mobile menu has proper open/close labels and marks itself as expanded or collapsed.
 
 ## AI tool disclosure
 
-I used Claude throughout this build — for scaffolding the initial project structure, generating and debugging individual components, converting Figma specs into Tailwind values, and catching bugs (flex/stretch issues, invalid class names, off-by-one carousel logic, that kind of thing) as I went. I made the actual implementation decisions, checked everything against Figma myself, and did the final pass through the code.
+I used Claude while building this — to help create a data array, and catch bugs (layout issues, invalid class names, carousel logic, etc.). I made the decisions on how things should look and work, checked everything against Figma myself, and reviewed the code before submitting.
 
 ## Known issues
 
-- `globals.css` still has the default `prefers-color-scheme: dark` block from `create-next-app`. It's not part of the Figma design (which is light-only) and can invert colors under OS dark mode — should be removed before this is considered final.
-- The nav dropdown chevrons are keyboard-toggleable but don't render actual submenu content (see note above).
-- `.primary-button` is one shared class in `globals.css` rather than pure inline Tailwind utilities — a deliberate exception for a color/style combo reused across several buttons.
-- A couple of `alt` texts (hero image, LMS photo) could be more descriptive of what's actually happening in the shot rather than reading like filenames.
+- `globals.css` still has the default dark mode styles from `create-next-app`. These aren't part of the Figma design (which is light-only) and could change the page's colors if someone's system is in dark mode. This should be removed.
+- The nav dropdown arrows open and close but don't show real menu content (explained above).
+- `.primary-button` is one shared class in `globals.css`, used for buttons that repeat the same color and style, instead of only using Tailwind classes directly.
+- A couple of image alt texts (hero image, LMS photo) could describe the photo better instead of reading like a filename.
 
 ## Checklist
 
-- [x] Public repo, live URL working
-- [x] README covers setup, stack, Figma link, decisions, known issues, AI disclosure
-- [x] App Router + Tailwind only, no other CSS framework or UI kit
-- [x] Components split under `/components`, no monolithic page file
-- [x] Semantic HTML, `next/image`, `next/font`
+- Public repo, live site working
+- README covers setup, stack, Figma link, design decisions, known issues, AI disclosure
+- App Router + Tailwind only
+- Components split into their own files, no single big page file
+- Semantic HTML, `next/image`, `next/font`

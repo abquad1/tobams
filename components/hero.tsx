@@ -10,7 +10,7 @@ function Hero() {
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/hero-background.jpg"
-            alt="hero-background"
+            alt="hero-background-image"
             fill
             className="object-cover "
             priority

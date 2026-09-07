@@ -14,7 +14,6 @@
   --quinary: #2C0922;
   --septenary: #1671D9;
   --secondary-background: #C4C4C4;
-  --octonary: #909090;
 }
 
 .primary-button {
@@ -35,19 +34,11 @@
   --color-quinary: var(--quinary);
   --color-senary: var(--senary);
   --color-septenary: var(--septenary);
-  --color-octonary: var(--octonary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary-foreground: var(--secondary-foreground);
    --color-icon-flash-stroke: var( --icon-flash-stroke)
   --font-heading: var(--font-nunito);
   --font-body: var(--font-nunito-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
