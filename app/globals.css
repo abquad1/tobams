@@ -13,8 +13,7 @@
   --quaternary: #8F6182;
   --quinary: #2C0922;
   --septenary: #1671D9;
-
-  --border: #C4C4C4;
+  --secondary-background: #C4C4C4;
   --octonary: #909090;
 }
 
@@ -32,7 +31,7 @@
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-quaternary: var(--quaternary);
-  --color-border: var(--border);
+  --color-secondary-background: var(--secondary-background);
   --color-quinary: var(--quinary);
   --color-senary: var(--senary);
   --color-septenary: var(--septenary);

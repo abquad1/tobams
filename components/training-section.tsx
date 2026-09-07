@@ -1,4 +1,3 @@
-// src/components/sections/feature-row.tsx
 import Image from "next/image";
 import FlashIcon from "./icons/flash-icon";
 export type TrainingCardType = {
@@ -77,39 +76,45 @@ export default function TrainingSection({ row }: { row: TrainingCardType }) {
 
   return (
     <div
-      className={`flex flex-col md:flex-row items-center gap-14 ${
+      className={`flex flex-col md:flex-row items-start  gap-6 md:gap-14 ${
         isImageLeft ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      <div className="relative w-full md:w-9/20 shrink-0 flex items-center justify-center">
-        <Image
-            src={row.image.src}
-            alt={row.image.alt}
-            width={356}
-            height={356}
-            className="h-auto w-full max-h-89 object-contain rounded-r-lg rounded-bl-lg rounded-tl-[40px]"
-        />
-        </div>
-
-      <div className="flex w-full md:w-11/20 flex-col gap-5.25">
-        <h3 className="text-[40px] text-foreground font-semibold leading-[150%] tracking-[0.03em]">
+        <h3 className="md:hidden text-xl text-foreground font-semibold leading-[150%] tracking-[0.03em]">
           {row.heading}
         </h3>
-        <p className="text-lg text-tertiary leading-[150%]">
-          {row.description}
-        </p>
-        <ul className="flex flex-col gap-2">
-          {row.bullets.map((bullet) => (
-            <li
-              key={bullet}
-              className="flex items-start gap-2 text-base text-tertiary leading-[150%]"
-            >
-              <FlashIcon className="h-4.5 w-3.5 text-senary" strokeColor="var(--icon-flash-stroke)" />
-              {bullet}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="relative w-full md:w-9/20 shrink-0 flex items-center justify-center">
+            <Image
+                src={row.image.src}
+                alt={row.image.alt}
+                width={356}
+                height={356}
+                className="h-auto w-full max-h-89 object-contain rounded-r-lg rounded-bl-lg rounded-tl-[40px]"
+            />
+        </div>
+
+        <div className="flex w-full md:w-11/20 flex-col gap-5.25">
+            <div className="flex flex-col">
+                <h3 className="hidden md:block text-[40px] text-foreground font-semibold leading-[150%] tracking-[0.03em]">
+                {row.heading}
+                </h3>
+                <p className="text-sm md:text-lg text-tertiary leading-[150%]">
+                {row.description}
+                </p>
+            </div>
+
+            <ul className="flex flex-col gap-2 px-7.5">
+            {row.bullets.map((bullet) => (
+                <li
+                key={bullet}
+                className="flex items-start gap-2 text-sm md:text-lg text-tertiary leading-[150%]"
+                >
+                <FlashIcon className="h-4.5 w-3.5 text-senary" strokeColor="var(--icon-flash-stroke)" />
+                {bullet}
+                </li>
+            ))}
+            </ul>
+        </div>
     </div>
   );
 }

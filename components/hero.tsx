@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image'
-import ArrowUpRightIcon from './icons/arrow-up-icon'
 
 function Hero() {
   return (
@@ -22,7 +21,7 @@ function Hero() {
         {/* overlay */}
         <div className="absolute inset-0 bg-secondary-foreground/70 w-full shrink-0 z-10"></div>
 
-        <div className="relative w-full text-background flex flex-col z-50 items-center justify-center gap-3 max-w-full md:max-w-270 mx-auto">
+        <div className="relative w-full text-background flex flex-col z-10 items-center justify-center gap-3 max-w-full md:max-w-270 mx-auto">
             <span className="bg-background/10 leading-1.5 font-semibold text-sm flex items-center justify-center px-8 md:px-12 py-2.5 md:py-3 rounded-full">
                 WHAT WE DO
             </span>
@@ -35,9 +34,8 @@ function Hero() {
                 Our comprehensive range of programs and resources is designed to enhance skills, broaden knowledge, and propel careers forward in today's ever-evolving landscape.
             </p>
 
-            <button className="w-fit flex items-center gap-2 justify-center primary-button py-[10.5px] px-4 rounded-sm text-sm font-semibold text-background leading-relaxed ">
-                <span className="text-lg font-semibold leading-relaxed ">Learn more</span>
-                <ArrowUpRightIcon className='text-primary-foreground'/>
+            <button className="flex items-center justify-center primary-button py-[10.5px] px-4 rounded-sm text-sm font-semibold text-background leading-relaxed ">
+                Book a Consultation
             </button>
         </div>
       </div>
